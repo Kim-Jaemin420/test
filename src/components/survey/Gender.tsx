@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Gender.module.scss';
 import ProgressBar from '../common/ProgressBar';
 
@@ -23,26 +22,32 @@ function Gender({ nickname, gender, setGender, setPageCount }: Props): JSX.Eleme
   };
 
   return (
-    <div className={cx('wrapper')}>
+    <div>
       <ProgressBar percent={2 / 5} />
-      <div className={cx('title')}>
-        {nickname}님의 <span>성별</span>은 무엇인가요?
-      </div>
-      <div>
-        <button className={cx('gender__button')} onClick={handleClick('male')}>
-          남성
+      <div className={cx('container')}>
+        <h2 className={cx('title')}>
+          {nickname}님의 <span>성별</span>은 무엇인가요?
+        </h2>
+        <div>
+          <button
+            className={cx('gender__button')}
+            autoFocus={gender === 'male'}
+            onClick={handleClick('male')}
+          >
+            남성
+          </button>
+          <button
+            className={cx('gender__button')}
+            autoFocus={gender === 'female'}
+            onClick={handleClick('female')}
+          >
+            여성
+          </button>
+        </div>
+        <button className={cx('next__button')} type="button" onClick={onSubmit} disabled={!gender}>
+          다음
         </button>
-        <button className={cx('gender__button')} onClick={handleClick('female')}>
-          여성
-        </button>
       </div>
-      <button
-        className={cx('next__button', gender && 'activation__button')}
-        type="button"
-        onClick={onSubmit}
-      >
-        다음
-      </button>
     </div>
   );
 }

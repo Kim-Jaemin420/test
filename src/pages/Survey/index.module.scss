@@ -1,1 +1,17 @@
-@import '../../components/survey/Gender.module.scss';
+@import '../../styles/common';
+
+@include survey-default-with-button;
+
+.header {
+  display: flex;
+  width: 360px;
+  height: 88px;
+  align-items: center;
+  padding: 0 16px;
+
+  .previous__button {
+    width: 40px;
+    height: 40px;
+    background-color: $background;
+  }
+}

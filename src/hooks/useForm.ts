@@ -16,13 +16,13 @@ interface Props {
 
 const useForm = ({ initialState, validate }: Props) => {
   const [errors, setErrors] = useState<any>({});
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(0);
   const [surveyState, setSurveyState] = useState<SurveyState>(initialState);
 
   useEffect(() => {
     const newError = validate(surveyState);
     setErrors(newError);
-  }, [surveyState, validate]);
+  }, [surveyState]);
 
   const setState = (key: string) => (value: string | number) => {
     setSurveyState(prev => ({

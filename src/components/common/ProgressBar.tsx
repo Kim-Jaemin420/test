@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './ProgressBar.module.scss';
 
 import classNames from 'classnames/bind';
@@ -6,10 +6,10 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 function ProgressBar({ percent }: { percent: number }): JSX.Element {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(percent * 312 - 60);
 
   useEffect(() => {
-    setValue(percent * 300);
+    setValue(percent * 312);
   }, [percent]);
 
   return (

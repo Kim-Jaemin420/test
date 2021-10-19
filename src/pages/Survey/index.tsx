@@ -80,6 +80,7 @@ import styles from './index.module.scss';
 import { Fragment } from 'react';
 import { Age, Gender, Nickname, BodyInfo, Split } from '../../components/survey';
 import useForm from '../../hooks/useForm';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 interface SurveyState {
   nickname: string;
@@ -113,11 +114,6 @@ function Survey(): any {
     initialState,
     validate: ({ nickname, gender, age, height, weight, split }: SurveyState) => {
       const newErros = {} as any;
-      const nickRegex = /^[ㄱ-ㅎ|가-힣\s|a-z|A-Z|0-9|_|.|,|/\s/|]+$/g;
-
-      if (!nickRegex.test(nickname)) {
-        newErros.nickname = '한글, 영어, 숫자, 특수문자(_.,)만 가능해요';
-      }
 
       if (isNaN(age)) {
         newErros.age = '나이에는 숫자만 입력할 수 있습니다';
@@ -178,11 +174,16 @@ function Survey(): any {
   return components.map((component, page) => {
     if (currentPage === page) {
       return (
-        <div key="wrapper">
+        <div className={styles.container} key={`component-${page}`}>
           <header className={styles.header}>
-            <button onClick={() => setPageCount(currentPage - 1)}>뒤로 가기</button>
+            <button
+              className={styles.previous__button}
+              onClick={() => setPageCount(currentPage - 1)}
+            >
+              <ArrowBackIcon />
+            </button>
           </header>
-          <Fragment key={`component-${page}`}>{component}</Fragment>
+          <Fragment>{component}</Fragment>
         </div>
       );
     }
