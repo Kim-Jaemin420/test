@@ -1,0 +1,27 @@
+@import '../../styles/color';
+
+.wrapper {
+  background-color: #c5c5c5;
+  border-radius: 0.5rem;
+  width: 300px;
+  height: 10px;
+  text-align: right;
+
+  .progress {
+    background-color: $primary;
+    height: 10px;
+    border-radius: 1rem;
+    transition: 1s ease;
+    transition-delay: 0.5s;
+  }
+
+  .step {
+    color: #777777;
+    text-align: right;
+    font-size: 1rem;
+  }
+
+  .current__step {
+    color: $primary;
+  }
+}

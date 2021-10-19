@@ -1,6 +1,6 @@
 import React from 'react';
 import setting from '../../../public/assets/svgIcon/setting.svg';
-import {} from './index.scss';
+// import {} from './index.scss';
 
 function FitnessRoutine(): JSX.Element {
   return (
